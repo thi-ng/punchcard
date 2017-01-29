@@ -1,11 +1,11 @@
 * thi.ng/punchcard
 
-CLI tool to create punchcard Git commit visualizations of local repos
+CLI tool to create Git commit punchcard visualizations of local repos
 with customizable styling. SVG output via [[https://github.com/thi-ng/geom/blob/develop/examples/viz/demos.org#heatmap][thi.ng/geom]] heatmap viz module.
 
-[[./assets/example-geom.svg]]
+[[./assets/example-geom.png]]
 
-[[./assets/example-cthing.svg]]
+[[./assets/example-cthing.png]]
 
 ** Usage
 
@@ -24,6 +24,8 @@ cd punchcard
 - --gradient :: [[https://github.com/thi-ng/color/blob/master/src/gradients.org][thi.ng/color]] gradient preset ID. Default: =yellow-green-blue=
 - --out :: Output path. Default: =punchcard.svg=
 - --title :: Optional title. Defaults to repo path
+
+Further layout & styling options are available via the =layout= map in the [[https://github.com/thi-ng/punchcard/blob/master/src/thi/ng/punchcard/core.clj#L15][source code]].
 
 ** Requirements
 
