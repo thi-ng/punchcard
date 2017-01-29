@@ -1,0 +1,35 @@
+* thi.ng/punchcard
+
+CLI tool to create punchcard Git commit visualizations of local repos
+with customizable styling. SVG output via [[https://github.com/thi-ng/geom/blob/develop/examples/viz/demos.org#heatmap][thi.ng/geom]] heatmap viz module.
+
+[[./assets/example-geom.svg]]
+
+[[./assets/example-cthing.svg]]
+
+** Usage
+
+#+BEGIN_SRC shell
+git clone https://github.com/thi-ng/punchcard.git
+cd punchcard
+
+./punchcard --repo <path> --author "email" --title "My commits" --out <path> --gradient "id"
+#+END_SRC
+
+*** Options
+
+- --repo :: The only required argument. Repository path.
+- --author :: Author email. If given, visualization will
+     only consider commits by this author.
+- --gradient :: [[https://github.com/thi-ng/color/blob/master/src/gradients.org][thi.ng/color]] gradient preset ID. Default: =yellow-green-blue=
+- --out :: Output path. Default: =punchcard.svg=
+- --title :: Optional title. Defaults to repo path
+
+** Requirements
+
+- Clojure 1.8
+- Leiningen
+
+** License
+
+Copyright © 2017 Karsten Schmidt // ASL2.0 licensed
