@@ -1,7 +1,9 @@
 * thi.ng/punchcard
 
 CLI tool to create Git commit punchcard visualizations of local repos
-with customizable styling. SVG output via [[https://github.com/thi-ng/geom/blob/develop/examples/viz/demos.org#heatmap][thi.ng/geom]] heatmap viz module.
+with customizable styling. SVG output via [[https://github.com/thi-ng/geom/blob/develop/examples/viz/demos.org#heatmap][thi.ng/geom]] heatmap viz
+module. Visualizations can be filtered by author (regexp) and date
+range.
 
 [[./assets/example-geom.png]]
 
@@ -13,17 +15,28 @@ with customizable styling. SVG output via [[https://github.com/thi-ng/geom/blob/
 git clone https://github.com/thi-ng/punchcard.git
 cd punchcard
 
-./punchcard --repo <path> --author "email" --title "My commits" --out <path> --gradient "id"
+./punchcard \
+  --repo <path> \
+  --author "email-regexp" \
+  --title "Diagram title" \
+  --gradient "yellow-green-blue" \
+  --from "2017-01-01 00:00" \
+  --to "2018-01-1 00:00" \
+  --out <path>
 #+END_SRC
 
 *** Options
 
 - --repo :: The only required argument. Repository path.
-- --author :: Author email. If given, visualization will
-     only consider commits by this author.
+- --author :: Optional author email regexp. If given, must be in
+     quotes and visualization will only consider commits by authors
+     matching the expression. E.g. =.*@gmail.com= will only match
+     contributions from gmail addresses.
+- --from :: Optional start date in =YYYY-mm-dd hh:MM= format (inclusive)
+- --to :: Optional end date in =YYYY-mm-dd hh:MM= format (exclusive, open interval)
 - --gradient :: [[https://github.com/thi-ng/color/blob/master/src/gradients.org][thi.ng/color]] gradient preset ID. Default: =yellow-green-blue=
 - --out :: Output path. Default: =punchcard.svg=
-- --title :: Optional title. Defaults to repo path
+- --title :: Optional title / headline string. Defaults to repo path
 
 Further layout & styling options are available via the =layout= map in the [[https://github.com/thi-ng/punchcard/blob/master/src/thi/ng/punchcard/core.clj#L15][source code]].
 
