@@ -20,8 +20,12 @@ cd punchcard
   --author "email-regexp" \
   --title "Diagram title" \
   --gradient "yellow-green-blue" \
+  --ramp 0.66 \
+  --reverse 1 \
   --from "2017-01-01 00:00" \
   --to "2018-01-1 00:00" \
+  --bg black
+  --fg white
   --out <path>
 #+END_SRC
 
@@ -35,8 +39,12 @@ cd punchcard
 - --from :: Optional start date in =YYYY-mm-dd hh:MM= format (inclusive)
 - --to :: Optional end date in =YYYY-mm-dd hh:MM= format (exclusive, open interval)
 - --gradient :: [[https://github.com/thi-ng/color/blob/master/src/gradients.org][thi.ng/color]] gradient preset ID. Default: =yellow-green-blue=
+- --ramp :: gradient ramp exponent (default: 1), if < 1 gradient will emphasize larger values in the heatmap, if > 1 smaller values
+- --reverse :: if given as `--reverse 1` will reverse gradient direction
 - --out :: Output path. Default: =punchcard.svg=
 - --title :: Optional title / headline string. Defaults to repo path
+- --bg :: valid CSS color string for background (default: transparent)
+- --fg :: valid CSS color string for text/axes (default: black)
 
 Further layout & styling options are available via the =layout= map in the [[https://github.com/thi-ng/punchcard/blob/master/src/thi/ng/punchcard/core.clj#L15][source code]].
 
